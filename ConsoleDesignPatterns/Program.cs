@@ -8,15 +8,7 @@ namespace ConsoleDesignPatterns
     {
         static void Main(string[] args)
         {
-            Car car1 = new Car("Black");
-
-            // Create a new copy of the car
-            var car2 = car1.Clone() as Car;
-            car2.Colour = "White";
-
-            System.Console.WriteLine(car1);
-            System.Console.WriteLine(car2);
-
+            
         }
     }
 }
@@ -99,5 +91,40 @@ static void Main(string[] args)
 
     System.Console.WriteLine(car1);
     System.Console.WriteLine(car2);
+}
+----------------------------------------------- */
+
+/* -----------------------------------------------
+// Test Adaptor
+
+static void Main(string[] args)
+{
+    var xmlGraphs = new XmlGraphs();
+    var graphViewer = new JsonGraphs(xmlGraphs);
+    
+    var jsonData = "data in json text";
+
+    graphViewer.DisplayBarChart(jsonData);
+    graphViewer.DisplayPieChart(jsonData);
+}
+----------------------------------------------- */
+
+/* -----------------------------------------------
+// Test Bridge
+
+static void Main(string[] args)
+{
+    BankAccount account;
+
+    var currentAc = new CurrentAccount();
+    account = new BankAccount(currentAc);
+    account.Deposite(100m);
+    account.Withdraw(30m);
+    account.ShowBalance();
+
+    var savingsAc = new SavingsAccount();
+    account = new BankAccount(savingsAc);
+    account.Deposite(2000m);
+    account.ShowBalance();
 }
 ----------------------------------------------- */
