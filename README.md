@@ -11,16 +11,16 @@ The design patterns in this respository are implemented in C# and covers the fol
 ##  Structural Patterns
 - [x] Adaptor
 - [x] Bridge
-- [ ] Composite
-- [ ] Decorator
-- [ ] Facade
+- [x] Composite
+- [x] Decorator
+- [x] Facade
 - [ ] Flyweight
 - [ ] Proxy
 
 ##  Behavioural Patterns
 - [ ] Chain of Responsibility
 - [ ] Command
-- [ ] Iterator
+- [x] Iterator
 - [ ] Mediator
 - [ ] Memento
 - [ ] Observer - push

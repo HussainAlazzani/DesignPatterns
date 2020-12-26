@@ -23,23 +23,23 @@ namespace CSharpDesignPatterns
         public abstract object Clone();
     }
 
-    public class Car : Vehicle
+    public class Bus : Vehicle
     {
-        public Car(string colour) : base(colour)
+        public Bus(string colour) : base(colour)
         { }
 
         // Copy constructor to be used for cloning
-        public Car(Car source) : base(source)
+        public Bus(Bus source) : base(source)
         { }
 
         public override string ToString()
         {
-            return $"This is a car. Its colour is: {base.Colour}.";
+            return $"This is a bus. Its colour is: {base.Colour}.";
         }
 
         public override object Clone()
         {
-            return new Car(this);
+            return new Bus(this);
         }
     }
 }
