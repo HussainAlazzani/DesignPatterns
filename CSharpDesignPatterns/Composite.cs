@@ -4,6 +4,36 @@ using System.Collections.Generic;
 namespace CSharpDesignPatterns
 {
     /// <summary>
+    /// Client
+    /// </summary>
+    public class CompositeTest
+    {
+        public static void Run()
+        {
+            IFamilyMember jason = new Child("Jason", new DateTime(2001, 12, 4));
+            IFamilyMember natalie = new Child("Natalie", new DateTime(2005, 5, 23));
+            IFamilyMember kumar = new Child("Kumar", new DateTime(2002, 1, 18));
+
+            IFamilyMember peter = new Parent("Peter", new DateTime(1970, 5, 11));
+            peter.AddChild(jason);
+            peter.AddChild(natalie);
+
+            IFamilyMember ann = new Parent("Ann", new DateTime(1968, 11, 13));
+            ann.AddChild(kumar);
+
+            IFamilyMember margaret = new Parent("Margaret", new DateTime(1940, 3, 02));
+            margaret.AddChild(peter);
+            margaret.AddChild(ann);
+
+            // Display Margaret's children and grandchildren
+            margaret.GetDetails();
+            System.Console.WriteLine();
+            // Display Jason's details
+            jason.GetDetails();
+        }
+    }
+
+    /// <summary>
     /// Component 
     /// </summary>
     public interface IFamilyMember

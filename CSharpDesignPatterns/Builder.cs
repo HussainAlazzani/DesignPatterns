@@ -3,6 +3,29 @@ using System.Collections.Generic;
 
 namespace CSharpDesignPatterns
 {
+    /// <summary>
+    /// Client
+    /// </summary>
+    public class BuilderTest
+    {
+        public static void Run()
+        {
+            IBuilder builder = new ComputerBuilder();
+            var director = new Director();
+
+            director.BuildGamingPC(builder);
+            var gamingPC = builder.Computer;
+            gamingPC.Display();
+
+            director.BuildHomePC(builder);
+            var homePC = builder.Computer;
+            homePC.Display();
+        }
+    }
+
+    /// <summary>
+    /// Director
+    /// </summary>
     public class Director
     {
         public void BuildGamingPC(IBuilder builder)

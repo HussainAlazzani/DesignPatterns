@@ -1,6 +1,23 @@
 namespace CSharpDesignPatterns
 {
     /// <summary>
+    /// Client
+    /// </summary>
+    public class AdaptorTest
+    {
+        public static void Run()
+        {
+            var xmlGraphs = new XmlGraphs();
+            var graphViewer = new JsonGraphs(xmlGraphs);
+
+            var jsonData = "data in json text";
+
+            graphViewer.DisplayBarChart(jsonData);
+            graphViewer.DisplayPieChart(jsonData);
+        }
+    }
+
+    /// <summary>
     /// Adapter interface - The target
     /// </summary>
     public interface IGraphViewer
@@ -40,7 +57,7 @@ namespace CSharpDesignPatterns
     /// <summary>
     /// A utility to convert json string to xml string
     /// </summary>
-    public static class JsonTextToXmlText
+    public class JsonTextToXmlText
     {
         public static string Convert(string jsonData)
         {

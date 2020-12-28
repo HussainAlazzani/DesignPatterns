@@ -3,6 +3,30 @@ using System;
 namespace CSharpDesignPatterns
 {
     /// <summary>
+    /// Client
+    /// </summary>
+    public class FacadeTest
+    {
+        public static void Run()
+        {
+            System.Console.Write("Enter account to transfer from: ");
+            string accountA = Console.ReadLine();
+            System.Console.Write("Enter account to transfer to: ");
+            string accountB = Console.ReadLine();
+            System.Console.Write("Enter amount: ");
+
+            decimal amount;
+
+            if (Decimal.TryParse(Console.ReadLine(), out amount))
+            {
+                FinancialServices service = new FinancialServices();
+                service.Transfer(accountA, accountB, amount);
+            }
+        }
+    }
+
+
+    /// <summary>
     /// Facade
     /// </summary>
     public class FinancialServices
@@ -30,7 +54,7 @@ namespace CSharpDesignPatterns
     /// <summary>
     /// Subsystem A
     /// </summary>
-    internal class Connection :IDisposable
+    internal class Connection : IDisposable
     {
         internal void Open()
         {

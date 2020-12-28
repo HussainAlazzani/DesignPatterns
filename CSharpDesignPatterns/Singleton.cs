@@ -1,5 +1,27 @@
 namespace CSharpDesignPatterns
 {
+    /// <summary>
+    /// Client
+    /// </summary>
+    public class SingletonTest
+    {
+        public static void Run()
+        {
+            var s1 = Singleton.GetInstance();
+            var s2 = Singleton.GetInstance();
+
+            // returns true
+            System.Console.WriteLine(s1 == s2);
+
+            // Cannot access constructor because it is private.
+            // var s3 = new Singleton();
+
+        }
+    }
+
+    /// <summary>
+    /// Singleton
+    /// </summary>
     public class Singleton
     {
         private static Singleton instance;
@@ -14,6 +36,10 @@ namespace CSharpDesignPatterns
             return instance;
         }
     }
+
+    /// <summary>
+    /// Singleton for multithreaded applications
+    /// </summary>
     public class SingletonMultithreaded
     {
         private static SingletonMultithreaded instance;

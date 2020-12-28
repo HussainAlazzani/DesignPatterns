@@ -3,6 +3,24 @@ using System;
 namespace CSharpDesignPatterns
 {
     /// <summary>
+    /// Client
+    /// </summary>
+    public class PrototypeTest
+    {
+        public static void Run()
+        {
+            Bus bus1 = new Bus("Red");
+
+            // Create a new copy of the bus
+            var bus2 = bus1.Clone() as Bus;
+            bus2.Colour = "Yellow";
+
+            System.Console.WriteLine(bus1);
+            System.Console.WriteLine(bus2);
+        }
+    }
+
+    /// <summary>
     /// Prototype
     /// </summary>
     public abstract class Vehicle : ICloneable

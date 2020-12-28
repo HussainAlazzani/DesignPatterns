@@ -1,6 +1,23 @@
 namespace CSharpDesignPatterns
 {
     /// <summary>
+    /// Client
+    /// </summary>
+    public class AbstractFactoryTest
+    {
+        public static void Run()
+        {
+            IUniformFactory factory = new OfficeUniformFactory();
+            var uniform = new CreateFullUniform(factory, 15, 10);
+            uniform.Display();
+
+            factory = new WorkshopUniformFactory();
+            uniform = new CreateFullUniform(factory, 15, 10);
+            uniform.Display();
+        }
+    }
+
+    /// <summary>
     /// Factory producer
     /// </summary>
     public class CreateFullUniform

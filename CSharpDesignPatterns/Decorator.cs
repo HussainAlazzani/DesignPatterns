@@ -1,6 +1,35 @@
 namespace CSharpDesignPatterns
 {
     /// <summary>
+    /// Client
+    /// </summary>
+    public class DecoratorTest
+    {
+        public static void Run()
+        {
+            Car basicCar = new Car();
+            Car privateCar = new Car();
+            Car companyCar = new Car();
+
+            IInsurance basicInsurance = new BasicInsurance();
+            InsuranceDecorator privateInsurance = new PrivateComprehensive(basicInsurance);
+            InsuranceDecorator companyInsurance = new CompanyComprehensive(basicInsurance);
+
+            // Add basic cover
+            basicInsurance.AddQuote(basicCar);
+            System.Console.WriteLine(basicCar.Price);
+
+            // Add private cover
+            privateInsurance.AddQuote(privateCar);
+            System.Console.WriteLine(privateCar.Price);
+
+            // Add company cover
+            companyInsurance.AddQuote(companyCar);
+            System.Console.WriteLine(companyCar.Price);
+        }
+    }
+
+    /// <summary>
     /// Component
     /// </summary>
     public interface IInsurance

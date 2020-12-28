@@ -1,6 +1,30 @@
 namespace CSharpDesignPatterns
 {
     /// <summary>
+    /// Client
+    /// </summary>
+    public class BridgeTest
+    {
+        public static void Run()
+        {
+            BankAccount account;
+
+            var currentAc = new CurrentAccount();
+            account = new BankAccount(currentAc);
+            account.Deposite(100m);
+            account.Withdraw(30m);
+            account.ShowBalance();
+
+            var savingsAc = new SavingsAccount();
+            account = new BankAccount(savingsAc);
+            account.Deposite(2000m);
+            account.ShowBalance();
+        }
+    }
+
+
+
+    /// <summary>
     /// Abstraction
     /// </summary>
     public class BankAccount
@@ -44,7 +68,7 @@ namespace CSharpDesignPatterns
     /// </summary>
     public class CurrentAccount : IAccount
     {
-        public decimal Balance {get; private set;}
+        public decimal Balance { get; private set; }
 
         public void Deposite(decimal amount)
         {
@@ -55,7 +79,7 @@ namespace CSharpDesignPatterns
         {
             this.Balance -= amount;
         }
-        
+
         // other method implementations specific to current accounts
         // ...
     }

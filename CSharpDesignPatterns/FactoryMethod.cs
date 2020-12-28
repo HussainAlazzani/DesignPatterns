@@ -3,6 +3,21 @@ using System;
 namespace CSharpDesignPatterns
 {
     /// <summary>
+    /// Client
+    /// </summary>
+    public class FactoryMethodTest
+    {
+        public static void Run()
+        {
+            var monopoly = new CreateBoardGame("Monopoly");
+            monopoly.Play();
+
+            var snakesLadders = new CreateBoardGame("SnakesAndLadders");
+            snakesLadders.Play();
+        }
+    }
+
+    /// <summary>
     /// This class represents the creator class
     /// </summary>
     public class CreateBoardGame
@@ -35,7 +50,7 @@ namespace CSharpDesignPatterns
     /// </summary>
     public abstract class BoardGame
     {
-        public abstract string Name { get;}
+        public abstract string Name { get; }
 
         public abstract void Play();
     }
@@ -46,8 +61,7 @@ namespace CSharpDesignPatterns
     public class Monopoly : BoardGame
     {
         public Monopoly()
-        {
-        }
+        { }
 
         public override string Name => "Monopoly";
         public override void Play()
@@ -62,8 +76,7 @@ namespace CSharpDesignPatterns
     public class SnakesAndLadders : BoardGame
     {
         public SnakesAndLadders()
-        {
-        }
+        { }
 
         public override string Name => "SnakesAndLadders";
 

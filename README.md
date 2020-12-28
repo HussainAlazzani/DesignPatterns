@@ -14,11 +14,11 @@ The design patterns in this respository are implemented in C# and covers the fol
 - [x] Composite
 - [x] Decorator
 - [x] Facade
-- [ ] Flyweight
-- [ ] Proxy
+- [x] Flyweight
+- [X] Proxy
 
 ##  Behavioural Patterns
-- [ ] Chain of Responsibility
+- [x] Chain of Responsibility
 - [ ] Command
 - [x] Iterator
 - [ ] Mediator
