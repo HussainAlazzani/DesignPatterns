@@ -19,13 +19,13 @@ The design patterns in this respository are implemented in C# and covers the fol
 
 ##  Behavioural Patterns
 - [x] Chain of Responsibility
-- [ ] Command
+- [x] Command
 - [x] Iterator
-- [ ] Mediator
-- [ ] Memento
-- [ ] Observer - push
-- [ ] Observer - pull
-- [ ] State
-- [ ] Strategy
-- [ ] Template
+- [x] Mediator
+- [x] Memento
+- [x] Observer - push
+- [x] Observer - pull
+- [x] State
+- [x] Strategy
+- [x] Template Method
 - [ ] Visitor

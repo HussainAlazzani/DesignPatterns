@@ -33,8 +33,16 @@ namespace ConsoleDesignPatterns
             // -------------------------------
 
             // IteratorTest.Run();
-            CommandTest.Run();
+            // CommandTest.Run();
             // ChainOfResponsibilityTest.Run();
+            // MediatorTest.Run();
+            // MementoTest.Run();
+            // StateTest.Run();
+            // ObserverPullTest.Run();
+            // ObserverPushTest.Run();
+            // StrategyTest.Run();
+            // TemplateMethodTest.Run();
+            VisitorTest.Run();
         }
     }
 }
