@@ -22,31 +22,29 @@ namespace CSharpDesignPatterns
         }
     }
 
-
-
     /// <summary>
     /// Abstraction
     /// </summary>
-    public class BankAccount
+    internal class BankAccount
     {
         protected IAccount account;
 
-        public BankAccount(IAccount account)
+        internal BankAccount(IAccount account)
         {
             this.account = account;
         }
 
-        public void Deposite(decimal amount)
+        internal void Deposite(decimal amount)
         {
             account.Deposite(amount);
         }
 
-        public void Withdraw(decimal amount)
+        internal void Withdraw(decimal amount)
         {
             account.Withdraw(amount);
         }
 
-        public void ShowBalance()
+        internal void ShowBalance()
         {
             System.Console.WriteLine(account.Balance);
         }
@@ -56,7 +54,7 @@ namespace CSharpDesignPatterns
     /// <summary>
     /// Implementor
     /// </summary>
-    public interface IAccount
+    internal interface IAccount
     {
         decimal Balance { get; }
         void Withdraw(decimal amount);
@@ -66,7 +64,7 @@ namespace CSharpDesignPatterns
     /// <summary>
     /// Concrete Implementor A
     /// </summary>
-    public class CurrentAccount : IAccount
+    internal class CurrentAccount : IAccount
     {
         public decimal Balance { get; private set; }
 
@@ -87,7 +85,7 @@ namespace CSharpDesignPatterns
     /// <summary>
     /// Concrete Implementor B
     /// </summary>
-    public class SavingsAccount : IAccount
+    internal class SavingsAccount : IAccount
     {
         public decimal Balance { get; private set; }
 

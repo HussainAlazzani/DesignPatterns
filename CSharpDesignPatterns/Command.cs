@@ -25,7 +25,7 @@ namespace CSharpDesignPatterns
     /// <summary>
     /// Command
     /// </summary>
-    public interface IExchange
+    internal interface IExchange
     {
         void Execute();
     }
@@ -33,12 +33,12 @@ namespace CSharpDesignPatterns
     /// <summary>
     /// Concrete command A
     /// </summary>
-    public class BuyEuro : IExchange
+    internal class BuyEuro : IExchange
     {
         private CurrencyExchange exchange;
         private decimal amount;
 
-        public BuyEuro(CurrencyExchange exchange, decimal amount)
+        internal BuyEuro(CurrencyExchange exchange, decimal amount)
         {
             this.exchange = exchange;
             this.amount = amount;
@@ -55,13 +55,13 @@ namespace CSharpDesignPatterns
     /// <summary>
     /// Concrete command B
     /// </summary>
-    public class BuyBitcoin : IExchange
+    internal class BuyBitcoin : IExchange
     {
         private CurrencyExchange exchange;
         private decimal amount;
         private string btcAddress;
 
-        public BuyBitcoin(CurrencyExchange exchange, decimal amount, string btcAddress)
+        internal BuyBitcoin(CurrencyExchange exchange, decimal amount, string btcAddress)
         {
             this.exchange = exchange;
             this.amount = amount;
@@ -80,15 +80,15 @@ namespace CSharpDesignPatterns
     /// <summary>
     /// Receiver
     /// </summary>
-    public class CurrencyExchange
+    internal class CurrencyExchange
     {
-        public void ExchangeFiat(string currency, decimal amount, decimal rate)
+        internal void ExchangeFiat(string currency, decimal amount, decimal rate)
         {
             decimal newAmount = amount * rate;
             System.Console.WriteLine($"Exchanged {amount} GBP to {newAmount} {currency} at {DateTime.Now}");
         }
 
-        public void ExchangeCrypto(string currency, decimal amount, decimal rate, string btcAddress)
+        internal void ExchangeCrypto(string currency, decimal amount, decimal rate, string btcAddress)
         {
             decimal newAmount = amount * rate;
             System.Console.WriteLine($"Exchanged {amount} GBP to {newAmount} {currency}. Address {btcAddress} at {DateTime.Now}");
@@ -98,16 +98,16 @@ namespace CSharpDesignPatterns
     /// <summary>
     /// Invoker
     /// </summary>
-    public class CurrencyExchangeService
+    internal class CurrencyExchangeService
     {
         private IList<IExchange> orderList = new List<IExchange>();
 
-        public void AddOrder(IExchange order)
+        internal void AddOrder(IExchange order)
         {
             orderList.Add(order);
         }
 
-        public void ExecuteOrders()
+        internal void ExecuteOrders()
         {
             foreach (var order in orderList)
             {
@@ -116,135 +116,4 @@ namespace CSharpDesignPatterns
             orderList.Clear();
         }
     }
-
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// using System.Collections.Generic;
-
-// namespace CSharpDesignPatterns
-// {
-//     /// <summary>
-//     /// Client
-//     /// </summary>
-//     public class CommandTest
-//     {
-//         public static void Run()
-//         {
-//             Stock tslStock = new Stock();
-
-//             IOrder buyStock = new BuyStock(tslStock);
-//             IOrder sellStock = new SellStock(tslStock);
-
-//             Broker broker = new Broker();
-//             broker.TakeOrder(buyStock);
-//             broker.TakeOrder(sellStock);
-//             broker.PlaceOrders();
-//         }
-//     }
-
-//     /// <summary>
-//     /// Command
-//     /// </summary>
-//     public interface IOrder
-//     {
-//         void Execute();
-//     }
-
-//     /// <summary>
-//     /// Concrete command A
-//     /// </summary>
-//     public class BuyStock : IOrder
-//     {
-//         private Stock tslStock;
-
-//         public BuyStock(Stock tslStock)
-//         {
-//             this.tslStock = tslStock;
-//         }
-
-//         public void Execute()
-//         {
-//             tslStock.Buy();
-//         }
-//     }
-
-//     /// <summary>
-//     /// Concrete command A
-//     /// </summary>
-//     public class SellStock : IOrder
-//     {
-//         private Stock tslStock;
-
-//         public SellStock(Stock tslStock)
-//         {
-//             this.tslStock = tslStock;
-//         }
-
-//         public void Execute()
-//         {
-//             tslStock.Sell();
-//         }
-//     }
-
-//     /// <summary>
-//     /// Receiver
-//     /// </summary>
-//     public class Stock
-//     {
-//         private string name = "TSL";
-//         private int quantity = 10;
-
-//         public void Buy()
-//         {
-//             System.Console.WriteLine($"Stock {name}, quantity: {quantity}.");
-//         }
-
-//         public void Sell()
-//         {
-//             System.Console.WriteLine($"Stock {name}, quantity: {quantity}.");
-//         }
-//     }
-
-//     /// <summary>
-//     /// Invoker
-//     /// </summary>
-//     public class Broker
-//     {
-//         private IList<IOrder> orderList = new List<IOrder>();
-
-//         public void TakeOrder(IOrder order)
-//         {
-//             orderList.Add(order);
-//         }
-
-//         public void PlaceOrders()
-//         {
-//             foreach (var order in orderList)
-//             {
-//                 order.Execute();
-//             }
-//             orderList.Clear();
-//         }
-//     }
-
-// }

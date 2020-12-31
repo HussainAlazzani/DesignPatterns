@@ -28,4 +28,4 @@ The design patterns in this respository are implemented in C# and covers the fol
 - [x] State
 - [x] Strategy
 - [x] Template Method
-- [ ] Visitor
+- [x] Visitor

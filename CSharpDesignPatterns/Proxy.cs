@@ -17,7 +17,7 @@ namespace CSharpDesignPatterns
     /// <summary>
     /// Subject
     /// </summary>
-    public interface ISave
+    internal interface ISave
     {
         void Save(string message);
     }
@@ -25,7 +25,7 @@ namespace CSharpDesignPatterns
     /// <summary>
     /// Proxy
     /// </summary>
-    public class MessageSaverProxy : ISave
+    internal class MessageSaverProxy : ISave
     {
         private MessageSaver real = new MessageSaver();
 
@@ -53,9 +53,9 @@ namespace CSharpDesignPatterns
     /// <summary>
     /// Real Subject
     /// </summary>
-    public class MessageSaver
+    internal class MessageSaver
     {
-        public void Save(string message)
+        internal void Save(string message)
         {
             System.Console.WriteLine("Saving message: " + message);
         }

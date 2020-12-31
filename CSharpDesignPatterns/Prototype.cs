@@ -23,9 +23,9 @@ namespace CSharpDesignPatterns
     /// <summary>
     /// Prototype
     /// </summary>
-    public abstract class Vehicle : ICloneable
+    internal abstract class Vehicle : ICloneable
     {
-        public string Colour { get; set; }
+        internal string Colour { get; set; }
 
         public Vehicle(string colour)
         {
@@ -33,7 +33,7 @@ namespace CSharpDesignPatterns
         }
 
         // A copy constructor to be used for cloning
-        public Vehicle(Vehicle source)
+        internal Vehicle(Vehicle source)
         {
             this.Colour = source.Colour;
         }
@@ -41,13 +41,13 @@ namespace CSharpDesignPatterns
         public abstract object Clone();
     }
 
-    public class Bus : Vehicle
+    internal class Bus : Vehicle
     {
-        public Bus(string colour) : base(colour)
+        internal Bus(string colour) : base(colour)
         { }
 
         // Copy constructor to be used for cloning
-        public Bus(Bus source) : base(source)
+        internal Bus(Bus source) : base(source)
         { }
 
         public override string ToString()

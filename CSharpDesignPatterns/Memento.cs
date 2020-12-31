@@ -28,16 +28,16 @@ namespace CSharpDesignPatterns
     /// <summary>
     /// Originator.
     /// </summary>
-    public class Editor
+    internal class Editor
     {
-        public string Content { get; set; }
+        internal string Content { get; set; }
 
-        public EditorState CreateState()
+        internal EditorState CreateState()
         {
             return new EditorState(Content);
         }
 
-        public void Restore(EditorState state)
+        internal void Restore(EditorState state)
         {
             Content = state.Content;
         }
@@ -46,29 +46,29 @@ namespace CSharpDesignPatterns
     /// <summary>
     /// Momento.
     /// </summary>
-    public class EditorState
+    internal class EditorState
     {
-        public EditorState(string content)
+        internal EditorState(string content)
         {
             Content = content;
         }
 
-        public string Content { get; }
+        internal string Content { get; }
     }
 
     /// <summary>
     /// Caretaker.
     /// </summary>
-    public class History
+    internal class History
     {
         private Stack<EditorState> states = new Stack<EditorState>();
 
-        public void Push(EditorState state)
+        internal void Push(EditorState state)
         {
             states.Push(state);
         }
 
-        public EditorState Pop()
+        internal EditorState Pop()
         {
             states.Pop();
             return states.Peek();

@@ -32,7 +32,7 @@ namespace CSharpDesignPatterns
     /// <summary>
     /// Component
     /// </summary>
-    public interface IInsurance
+    internal interface IInsurance
     {
         decimal GetQuote(Car car);
         Car AddQuote(Car car);
@@ -41,7 +41,7 @@ namespace CSharpDesignPatterns
     /// <summary>
     /// Concrete Component
     /// </summary>
-    public class BasicInsurance : IInsurance
+    internal class BasicInsurance : IInsurance
     {
         public Car AddQuote(Car car)
         {
@@ -62,7 +62,7 @@ namespace CSharpDesignPatterns
     /// <summary>
     /// Decorator
     /// </summary>
-    public abstract class InsuranceDecorator : IInsurance
+    internal abstract class InsuranceDecorator : IInsurance
     {
         protected IInsurance insurance;
 
@@ -86,9 +86,9 @@ namespace CSharpDesignPatterns
     /// <summary>
     /// Concrete decorator A
     /// </summary>
-    public class PrivateComprehensive : InsuranceDecorator
+    internal class PrivateComprehensive : InsuranceDecorator
     {
-        public PrivateComprehensive(IInsurance insurance) : base(insurance)
+        internal PrivateComprehensive(IInsurance insurance) : base(insurance)
         { }
 
         public override decimal GetQuote(Car car)
@@ -101,9 +101,9 @@ namespace CSharpDesignPatterns
     /// <summary>
     /// Concrete decorator B
     /// </summary>
-    public class CompanyComprehensive : InsuranceDecorator
+    internal class CompanyComprehensive : InsuranceDecorator
     {
-        public CompanyComprehensive(IInsurance insurance) : base(insurance)
+        internal CompanyComprehensive(IInsurance insurance) : base(insurance)
         { }
 
         public override decimal GetQuote(Car car)

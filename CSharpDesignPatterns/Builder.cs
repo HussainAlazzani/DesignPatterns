@@ -26,9 +26,9 @@ namespace CSharpDesignPatterns
     /// <summary>
     /// Director
     /// </summary>
-    public class Director
+    internal class Director
     {
-        public void BuildGamingPC(IBuilder builder)
+        internal void BuildGamingPC(IBuilder builder)
         {
             builder
                 .BuildMotherboard(new Motherboard("001"))
@@ -38,7 +38,7 @@ namespace CSharpDesignPatterns
                 .BuildGraphics(new Graphics("Nvidia"));
         }
 
-        public void BuildHomePC(IBuilder builder)
+        internal void BuildHomePC(IBuilder builder)
         {
             builder
                 .BuildMotherboard(new Motherboard("002"))
@@ -53,7 +53,7 @@ namespace CSharpDesignPatterns
     /// For fluent design, we set IBuilder as the return type, and in the implementation
     /// we return "this" which will return the IBuilder object which we can then chain.
     /// </summary>
-    public interface IBuilder
+    internal interface IBuilder
     {
         Computer Computer { get; }
         IBuilder BuildMotherboard(Motherboard mb);
@@ -64,11 +64,11 @@ namespace CSharpDesignPatterns
         void Reset();
     }
 
-    public class ComputerBuilder : IBuilder
+    internal class ComputerBuilder : IBuilder
     {
         public Computer Computer { get; }
 
-        public ComputerBuilder()
+        internal ComputerBuilder()
         {
             this.Computer = new Computer();
         }
@@ -109,23 +109,23 @@ namespace CSharpDesignPatterns
         }
     }
 
-    public class Computer
+    internal class Computer
     {
         private IList<object> components = new List<object>();
 
-        public Computer computer { get; }
+        internal Computer computer { get; }
 
-        public void Add(object part)
+        internal void Add(object part)
         {
             components.Add(part);
         }
 
-        public void Reset()
+        internal void Reset()
         {
             components.Clear();
         }
 
-        public void Display()
+        internal void Display()
         {
             foreach (var component in components)
             {
@@ -134,11 +134,11 @@ namespace CSharpDesignPatterns
         }
     }
 
-    public class Motherboard
+    internal class Motherboard
     {
-        public string Id { get; }
+        internal string Id { get; }
 
-        public Motherboard(string id)
+        internal Motherboard(string id)
         {
             Id = id;
         }
@@ -149,11 +149,11 @@ namespace CSharpDesignPatterns
         }
     }
 
-    public class CPU
+    internal class CPU
     {
-        public string Brand { get; }
+        internal string Brand { get; }
 
-        public CPU(string brand)
+        internal CPU(string brand)
         {
             this.Brand = brand;
         }
@@ -164,11 +164,11 @@ namespace CSharpDesignPatterns
         }
     }
 
-    public class RAM
+    internal class RAM
     {
-        public int Size { get; }
+        internal int Size { get; }
 
-        public RAM(int size)
+        internal RAM(int size)
         {
             this.Size = size;
         }
@@ -179,12 +179,12 @@ namespace CSharpDesignPatterns
         }
     }
 
-    public class Storage
+    internal class Storage
     {
-        public string Type { get; }
-        public int Size { get; }
+        internal string Type { get; }
+        internal int Size { get; }
 
-        public Storage(string type, int size)
+        internal Storage(string type, int size)
         {
             this.Size = size;
             this.Type = type;
@@ -196,11 +196,11 @@ namespace CSharpDesignPatterns
         }
     }
 
-    public class Graphics
+    internal class Graphics
     {
-        public string Type { get; }
+        internal string Type { get; }
 
-        public Graphics(string type)
+        internal Graphics(string type)
         {
             this.Type = type;
         }

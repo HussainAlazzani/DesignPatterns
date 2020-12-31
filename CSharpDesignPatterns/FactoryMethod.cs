@@ -20,11 +20,11 @@ namespace CSharpDesignPatterns
     /// <summary>
     /// This class represents the creator class
     /// </summary>
-    public class CreateBoardGame
+    internal class CreateBoardGame
     {
         private BoardGame game;
 
-        public CreateBoardGame(string type)
+        internal CreateBoardGame(string type)
         {
             switch (type.ToLower())
             {
@@ -39,7 +39,7 @@ namespace CSharpDesignPatterns
             }
         }
 
-        public void Play()
+        internal void Play()
         {
             game.Play();
         }
@@ -48,23 +48,23 @@ namespace CSharpDesignPatterns
     /// <summary>
     /// The product class
     /// </summary>
-    public abstract class BoardGame
+    internal abstract class BoardGame
     {
-        public abstract string Name { get; }
+        internal abstract string Name { get; }
 
-        public abstract void Play();
+        internal abstract void Play();
     }
 
     /// <summary>
     /// Concreate implementation of product A
     /// </summary>
-    public class Monopoly : BoardGame
+    internal class Monopoly : BoardGame
     {
-        public Monopoly()
+        internal Monopoly()
         { }
 
-        public override string Name => "Monopoly";
-        public override void Play()
+        internal override string Name => "Monopoly";
+        internal override void Play()
         {
             System.Console.WriteLine($"Play monopoly...");
         }
@@ -73,14 +73,14 @@ namespace CSharpDesignPatterns
     /// <summary>
     /// Concreate implementation of product B
     /// </summary>
-    public class SnakesAndLadders : BoardGame
+    internal class SnakesAndLadders : BoardGame
     {
-        public SnakesAndLadders()
+        internal SnakesAndLadders()
         { }
 
-        public override string Name => "SnakesAndLadders";
+        internal override string Name => "SnakesAndLadders";
 
-        public override void Play()
+        internal override void Play()
         {
             System.Console.WriteLine($"Play snakes and ladders...");
         }

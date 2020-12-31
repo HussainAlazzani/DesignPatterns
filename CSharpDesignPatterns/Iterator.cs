@@ -30,7 +30,7 @@ namespace CSharpDesignPatterns
     /// <summary>
     /// Aggregate interface
     /// </summary>
-    public interface IAggregate
+    internal interface IAggregate
     {
         IIterator CreateIterator();
     }
@@ -38,7 +38,7 @@ namespace CSharpDesignPatterns
     /// <summary>
     /// Iterator interface
     /// </summary>
-    public interface IIterator
+    internal interface IIterator
     {
         string Current();
         void Next();
@@ -49,7 +49,7 @@ namespace CSharpDesignPatterns
     /// <summary>
     /// Aggregate
     /// </summary>
-    public class ReadingList : IAggregate
+    internal class ReadingList : IAggregate
     {
         private IList<string> readingList = new List<string>();
 
@@ -58,14 +58,14 @@ namespace CSharpDesignPatterns
             return new MyIterator(this);
         }
 
-        public int Count => readingList.Count;
+        internal int Count => readingList.Count;
 
-        public void Add(string bookTitle)
+        internal void Add(string bookTitle)
         {
             readingList.Add(bookTitle);
         }
 
-        public string this[int index]
+        internal string this[int index]
         {
             get { return readingList[index]; }
             set { readingList.Insert(index, value); }
@@ -75,12 +75,12 @@ namespace CSharpDesignPatterns
     /// <summary>
     /// Aggregate
     /// </summary>
-    public class MyIterator : IIterator
+    internal class MyIterator : IIterator
     {
         private readonly ReadingList readingList;
         private int index;
 
-        public MyIterator(ReadingList readingList)
+        internal MyIterator(ReadingList readingList)
         {
             this.readingList = readingList;
         }

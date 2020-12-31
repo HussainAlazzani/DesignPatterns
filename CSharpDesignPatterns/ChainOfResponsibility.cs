@@ -24,26 +24,26 @@ namespace CSharpDesignPatterns
         }
     }
 
-    public class HttpRequest
+    internal class HttpRequest
     {
-        public HttpRequest(string username, string password)
+        internal HttpRequest(string username, string password)
         {
             Username = username;
             Password = password;
         }
 
-        public string Username { get; set; }
-        public string Password { get; set; }
+        internal string Username { get; set; }
+        internal string Password { get; set; }
     }
-    public class Webserver
+    internal class Webserver
     {
         private Handler handler;
 
-        public Webserver(Handler handler)
+        internal Webserver(Handler handler)
         {
             this.handler = handler;
         }
-        public void Handle(HttpRequest request)
+        internal void Handle(HttpRequest request)
         {
             handler.Handle(request);
         }
@@ -51,7 +51,7 @@ namespace CSharpDesignPatterns
     /// <summary>
     /// Abstract handler
     /// </summary>
-    public abstract class Handler
+    internal abstract class Handler
     {
         private Handler next;
 
@@ -59,23 +59,23 @@ namespace CSharpDesignPatterns
         {
             this.next = next;
         }
-        public void Handle(HttpRequest request)
+        internal void Handle(HttpRequest request)
         {
             if (DoHandle(request))
                 return;
             if (next != null)
                 next.Handle(request);
         }
-        public abstract bool DoHandle(HttpRequest request);
+        internal abstract bool DoHandle(HttpRequest request);
     }
     /// <summary>
     /// Concrete handler A
     /// </summary>
-    public class Authenticator : Handler
+    internal class Authenticator : Handler
     {
-        public Authenticator(Handler next) : base(next) { }
+        internal Authenticator(Handler next) : base(next) { }
 
-        public override bool DoHandle(HttpRequest request)
+        internal override bool DoHandle(HttpRequest request)
         {
             var isValid = (request.Username == "admin" && request.Password == "1234");
             System.Console.WriteLine("Authenticating...");
@@ -87,11 +87,11 @@ namespace CSharpDesignPatterns
     /// <summary>
     /// Concrete handler B
     /// </summary>
-    public class Compressor : Handler
+    internal class Compressor : Handler
     {
-        public Compressor(Handler next) : base(next) { }
+        internal Compressor(Handler next) : base(next) { }
 
-        public override bool DoHandle(HttpRequest request)
+        internal override bool DoHandle(HttpRequest request)
         {
             System.Console.WriteLine("Compressing...");
             return false;
@@ -100,11 +100,11 @@ namespace CSharpDesignPatterns
     /// <summary>
     /// Concrete handler C
     /// </summary>
-    public class Logger : Handler
+    internal class Logger : Handler
     {
-        public Logger(Handler next) : base(next) { }
+        internal Logger(Handler next) : base(next) { }
 
-        public override bool DoHandle(HttpRequest request)
+        internal override bool DoHandle(HttpRequest request)
         {
             System.Console.WriteLine("Logging request...");
             return false;

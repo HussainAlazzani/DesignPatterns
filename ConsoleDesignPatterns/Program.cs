@@ -10,11 +10,11 @@ namespace ConsoleDesignPatterns
             // Test Creational Design Patterns
             // -------------------------------
 
-            // SingletonTest.Run();
-            // FactoryMethodTest.Run();
+            FactoryMethodTest.Run();
             // AbstractFactoryTest.Run();
             // BuilderTest.Run();
             // PrototypeTest.Run();
+            // SingletonTest.Run();
 
             // -------------------------------
             // Test Structural Design Patterns
@@ -42,7 +42,7 @@ namespace ConsoleDesignPatterns
             // ObserverPushTest.Run();
             // StrategyTest.Run();
             // TemplateMethodTest.Run();
-            VisitorTest.Run();
+            // VisitorTest.Run();
         }
     }
 }

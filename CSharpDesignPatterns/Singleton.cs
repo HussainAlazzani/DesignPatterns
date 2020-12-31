@@ -22,12 +22,12 @@ namespace CSharpDesignPatterns
     /// <summary>
     /// Singleton
     /// </summary>
-    public class Singleton
+    internal class Singleton
     {
         private static Singleton instance;
         private Singleton() { }
 
-        public static Singleton GetInstance()
+        internal static Singleton GetInstance()
         {
             if (instance == null)
             {
@@ -40,14 +40,14 @@ namespace CSharpDesignPatterns
     /// <summary>
     /// Singleton for multithreaded applications
     /// </summary>
-    public class SingletonMultithreaded
+    internal class SingletonMultithreaded
     {
         private static SingletonMultithreaded instance;
         private SingletonMultithreaded() { }
 
         private static readonly object lockObject = new object();
 
-        public static SingletonMultithreaded GetInstance()
+        internal static SingletonMultithreaded GetInstance()
         {
             // This if conditional is needed to prevent threads stumbling
             // over the lock once the instance is ready.

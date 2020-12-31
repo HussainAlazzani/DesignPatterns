@@ -20,20 +20,20 @@ namespace CSharpDesignPatterns
     /// <summary>
     /// Factory producer
     /// </summary>
-    public class CreateFullUniform
+    internal class CreateFullUniform
     {
         private IUniformFactory factory;
         private Shirt shirt;
         private Shoes shoes;
 
-        public CreateFullUniform(IUniformFactory factory, int shirtSize, int shoeSize)
+        internal CreateFullUniform(IUniformFactory factory, int shirtSize, int shoeSize)
         {
             this.factory = factory;
             shirt = factory.CreateShirt(shirtSize);
             shoes = factory.CreateShoes(shoeSize);
         }
 
-        public void Display()
+        internal void Display()
         {
             shirt.Display();
             shoes.Display();
@@ -43,7 +43,7 @@ namespace CSharpDesignPatterns
     /// <summary>
     /// Abstract factory
     /// </summary>
-    public interface IUniformFactory
+    internal interface IUniformFactory
     {
         Shirt CreateShirt(int size);
         Shoes CreateShoes(int size);
@@ -52,7 +52,7 @@ namespace CSharpDesignPatterns
     /// <summary>
     /// Concrete factory A
     /// </summary>
-    public class WorkshopUniformFactory : IUniformFactory
+    internal class WorkshopUniformFactory : IUniformFactory
     {
         public Shirt CreateShirt(int size)
         {
@@ -68,7 +68,7 @@ namespace CSharpDesignPatterns
     /// <summary>
     /// Concrete factory B
     /// </summary>
-    public class OfficeUniformFactory : IUniformFactory
+    internal class OfficeUniformFactory : IUniformFactory
     {
         public Shirt CreateShirt(int size)
         {
@@ -84,28 +84,28 @@ namespace CSharpDesignPatterns
     /// <summary>
     /// Abstract product A
     /// </summary>
-    public abstract class Shirt
+    internal abstract class Shirt
     {
-        public int Size { get; }
-        public abstract string Color { get; }
+        internal int Size { get; }
+        internal abstract string Color { get; }
 
-        public Shirt(int size)
+        internal Shirt(int size)
         {
             this.Size = size;
         }
 
-        public abstract void Display();
+        internal abstract void Display();
     }
     /// <summary>
     /// Concrete product  A - type 1
     /// </summary>
-    public class FormalShirt : Shirt
+    internal class FormalShirt : Shirt
     {
-        public FormalShirt(int size) : base(size) { }
+        internal FormalShirt(int size) : base(size) { }
 
-        public override string Color => "White";
+        internal override string Color => "White";
 
-        public override void Display()
+        internal override void Display()
         {
             System.Console.WriteLine("Display image of a formal shirt");
         }
@@ -114,13 +114,13 @@ namespace CSharpDesignPatterns
     /// <summary>
     /// Concrete product A - type 2
     /// </summary>
-    public class TShirt : Shirt
+    internal class TShirt : Shirt
     {
-        public TShirt(int size) : base(size) { }
+        internal TShirt(int size) : base(size) { }
 
-        public override string Color => "Blue";
+        internal override string Color => "Blue";
 
-        public override void Display()
+        internal override void Display()
         {
             System.Console.WriteLine("Display image of a T-shirt");
         }
@@ -129,26 +129,26 @@ namespace CSharpDesignPatterns
     /// <summary>
     /// Abstract product B
     /// </summary>
-    public abstract class Shoes
+    internal abstract class Shoes
     {
-        public int Size { get; }
+        internal int Size { get; }
         
-        public Shoes(int size)
+        internal Shoes(int size)
         {
             Size = size;
         }
 
-        public abstract void Display();
+        internal abstract void Display();
     }
 
     /// <summary>
     /// Concrete product B - type 1
     /// </summary>
-    public class FormalShoes : Shoes
+    internal class FormalShoes : Shoes
     {
-        public FormalShoes(int size) : base(size) { }
+        internal FormalShoes(int size) : base(size) { }
 
-        public override void Display()
+        internal override void Display()
         {
             System.Console.WriteLine("Display image of formal shoes");
         }
@@ -157,11 +157,11 @@ namespace CSharpDesignPatterns
     /// <summary>
     /// Concrete product B - type 2
     /// </summary>
-    public class SafetyShoes : Shoes
+    internal class SafetyShoes : Shoes
     {
-        public SafetyShoes(int size):base(size){}
+        internal SafetyShoes(int size):base(size){}
 
-        public override void Display()
+        internal override void Display()
         {
             System.Console.WriteLine("Display image of safety shoes");
         }

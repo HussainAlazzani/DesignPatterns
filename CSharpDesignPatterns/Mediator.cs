@@ -39,7 +39,7 @@ namespace CSharpDesignPatterns
     /// <summary>
     /// Mediator
     /// </summary>
-    public interface IChatroom
+    internal interface IChatroom
     {
         void Register(Member member);
         void Send(string from, string to, string message);
@@ -48,7 +48,7 @@ namespace CSharpDesignPatterns
     /// <summary>
     /// Concrete mediator
     /// </summary>
-    public class Chatroom : IChatroom
+    internal class Chatroom : IChatroom
     {
         private Dictionary<string, Member> members = new Dictionary<string, Member>();
 
@@ -74,22 +74,22 @@ namespace CSharpDesignPatterns
     /// <summary>
     /// Colleague
     /// </summary>
-    public class Member
+    internal class Member
     {
-        public Member(string name)
+        internal Member(string name)
         {
             Name = name;
         }
 
-        public string Name { get; }
-        public IChatroom Chatroom { get; set; }
+        internal string Name { get; }
+        internal IChatroom Chatroom { get; set; }
 
-        public void Send(string to, string message)
+        internal void Send(string to, string message)
         {
             Chatroom.Send(Name, to, message);
         }
 
-        public virtual void Received(string from, string message)
+        internal virtual void Received(string from, string message)
         {
             System.Console.WriteLine($"From {from} to {Name}: {message}");
         }
@@ -98,12 +98,12 @@ namespace CSharpDesignPatterns
     /// <summary>
     /// Concrete Colleague A
     /// </summary>
-    public class Londoner : Member
+    internal class Londoner : Member
     {
-        public Londoner(string name) : base(name)
+        internal Londoner(string name) : base(name)
         { }
 
-        public override void Received(string from, string message)
+        internal override void Received(string from, string message)
         {
             System.Console.Write("To a Londoner: ");
             base.Received(from, message);
@@ -113,12 +113,12 @@ namespace CSharpDesignPatterns
     /// <summary>
     /// Concrete Colleague B
     /// </summary>
-    public class Bromi : Member
+    internal class Bromi : Member
     {
-        public Bromi(string name) : base(name)
+        internal Bromi(string name) : base(name)
         { }
 
-        public override void Received(string from, string message)
+        internal override void Received(string from, string message)
         {
             System.Console.Write("To a Bromi: ");
             base.Received(from, message);

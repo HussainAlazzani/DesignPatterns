@@ -16,7 +16,7 @@ namespace CSharpDesignPatterns
     /// <summary>
     /// Abstract class
     /// </summary>
-    public abstract class UpdateUser
+    internal abstract class UpdateUser
     {
         protected abstract bool FindUser(int id);
         protected abstract void UpdateAddress(string address);
@@ -26,7 +26,7 @@ namespace CSharpDesignPatterns
         /// <summary>
         /// Template method
         /// </summary>
-        public void UpdateUserAddress(int id, string newAddress)
+        internal void UpdateUserAddress(int id, string newAddress)
         {
             bool isFound = FindUser(id);
 
@@ -46,7 +46,7 @@ namespace CSharpDesignPatterns
     /// <summary>
     /// Concrete class A
     /// </summary>
-    public class UpdateLocalUser : UpdateUser
+    internal class UpdateLocalUser : UpdateUser
     {
         protected override void ConfirmUpdate(int id)
         {
@@ -73,7 +73,7 @@ namespace CSharpDesignPatterns
     /// <summary>
     /// Concrete class B
     /// </summary>
-    public class UpdateRemoteUser : UpdateUser
+    internal class UpdateRemoteUser : UpdateUser
     {
         protected override void ConfirmUpdate(int id)
         {
@@ -96,19 +96,4 @@ namespace CSharpDesignPatterns
             System.Console.WriteLine($"User {id} is not found in the remote database.");
         }
     }
-
-    public class User
-    {
-        public int Id { get; }
-        public string Name { get; set; }
-        public string Address { get; set; }
-
-        public User(int id, string name, string address)
-        {
-            Id = id;
-            Name = name;
-            Address = Address;
-        }
-    }
-
 }

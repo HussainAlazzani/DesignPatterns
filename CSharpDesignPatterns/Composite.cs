@@ -36,7 +36,7 @@ namespace CSharpDesignPatterns
     /// <summary>
     /// Component 
     /// </summary>
-    public interface IFamilyMember
+    internal interface IFamilyMember
     {
         void AddChild(IFamilyMember member);
         void GetDetails();
@@ -45,20 +45,20 @@ namespace CSharpDesignPatterns
     /// <summary>
     /// Composite
     /// </summary>
-    public class Parent : IFamilyMember
+    internal class Parent : IFamilyMember
     {
         // Store children of the parent member.
         private IList<IFamilyMember> children;
 
-        public Parent(string name, DateTime dateOfBirth)
+        internal Parent(string name, DateTime dateOfBirth)
         {
             Name = name;
             DateOfBirth = dateOfBirth;
             children = new List<IFamilyMember>();
         }
 
-        public string Name { get; set; }
-        public DateTime DateOfBirth { get; set; }
+        internal string Name { get; set; }
+        internal DateTime DateOfBirth { get; set; }
 
         public void AddChild(IFamilyMember member)
         {
@@ -68,7 +68,7 @@ namespace CSharpDesignPatterns
         public void GetDetails()
         {
             System.Console.WriteLine($"{Name}, DoB: {DateOfBirth}");
-            
+
             // This enables looping through each child in the family tree.
             foreach (var child in children)
             {
@@ -80,16 +80,16 @@ namespace CSharpDesignPatterns
     /// <summary>
     /// Leaf
     /// </summary>
-    public class Child : IFamilyMember
+    internal class Child : IFamilyMember
     {
-        public Child(string name, DateTime dateOfBirth)
+        internal Child(string name, DateTime dateOfBirth)
         {
             Name = name;
             DateOfBirth = dateOfBirth;
         }
 
-        public string Name { get; set; }
-        public DateTime DateOfBirth { get; set; }
+        internal string Name { get; set; }
+        internal DateTime DateOfBirth { get; set; }
 
         public void AddChild(IFamilyMember member)
         {

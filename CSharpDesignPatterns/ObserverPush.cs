@@ -25,11 +25,11 @@ namespace CSharpDesignPatterns
     /// <summary>
     /// Subject
     /// </summary>
-    public abstract class SubjectPush
+    internal abstract class SubjectPush
     {
         protected IList<IObserverPush> observers = new List<IObserverPush>();
-        public abstract void AddObserver(IObserverPush observer);
-        public abstract void RemoveObserver(IObserverPush observer);
+        internal abstract void AddObserver(IObserverPush observer);
+        internal abstract void RemoveObserver(IObserverPush observer);
 
         // Keeping it simple by passing int instead of something more generic.
         protected virtual void NotifyObservers(int data)
@@ -44,10 +44,10 @@ namespace CSharpDesignPatterns
     /// <summary>
     /// Concrete subject
     /// </summary>
-    public class DataSourcePush : SubjectPush
+    internal class DataSourcePush : SubjectPush
     {
         private int data;
-        public int Data
+        internal int Data
         {
             get { return data; }
             set
@@ -60,17 +60,17 @@ namespace CSharpDesignPatterns
             }
         }
 
-        public void Display()
+        internal void Display()
         {
             System.Console.WriteLine($"The data is {data}");
         }
 
-        public override void AddObserver(IObserverPush observer)
+        internal override void AddObserver(IObserverPush observer)
         {
             observers.Add(observer);
         }
 
-        public override void RemoveObserver(IObserverPush observer)
+        internal override void RemoveObserver(IObserverPush observer)
         {
             observers.Remove(observer);
         }
@@ -78,14 +78,14 @@ namespace CSharpDesignPatterns
     /// <summary>
     /// Observer
     /// </summary>
-    public interface IObserverPush
+    internal interface IObserverPush
     {
         void Update(int data);
     }
     /// <summary>
     /// Concrete Observer A
     /// </summary>
-    public class Spreadsheet : IObserverPush
+    internal class Spreadsheet : IObserverPush
     {
         public void Update(int data)
         {
@@ -96,7 +96,7 @@ namespace CSharpDesignPatterns
     /// Concrete Observer B.
     /// Better to create a chart base class, then PieChart inherits it.
     /// </summary>
-    public class PieChart : IObserverPush
+    internal class PieChart : IObserverPush
     {
         public void Update(int data)
         {

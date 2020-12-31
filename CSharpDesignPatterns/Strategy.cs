@@ -21,16 +21,16 @@ namespace CSharpDesignPatterns
     /// <summary>
     /// Context
     /// </summary>
-    public class FileEncryption
+    internal class FileEncryption
     {
-        public FileEncryption(IEncryption encryption)
+        internal FileEncryption(IEncryption encryption)
         {
             Encryption = encryption;
         }
 
-        public IEncryption Encryption { get; set; }
+        internal IEncryption Encryption { get; set; }
 
-        public void Encrypt(string filename)
+        internal void Encrypt(string filename)
         {
             Encryption.Apply(filename);
         }
@@ -39,7 +39,7 @@ namespace CSharpDesignPatterns
     /// <summary>
     /// Strategy
     /// </summary>
-    public interface IEncryption
+    internal interface IEncryption
     {
         void Apply(string filename);
     }
@@ -47,7 +47,7 @@ namespace CSharpDesignPatterns
     /// <summary>
     /// Concrete Strategy A
     /// </summary>
-    public class AES : IEncryption
+    internal class AES : IEncryption
     {
         public void Apply(string filename)
         {
@@ -58,7 +58,7 @@ namespace CSharpDesignPatterns
     /// <summary>
     /// Concrete Strategy B
     /// </summary>
-    public class RSA : IEncryption
+    internal class RSA : IEncryption
     {
         public void Apply(string filename)
         {
@@ -69,7 +69,7 @@ namespace CSharpDesignPatterns
     /// <summary>
     /// Concrete Strategy C
     /// </summary>
-    public class Blowfish : IEncryption
+    internal class Blowfish : IEncryption
     {
         public void Apply(string filename)
         {

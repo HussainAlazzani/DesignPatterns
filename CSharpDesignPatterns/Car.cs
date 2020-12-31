@@ -2,9 +2,9 @@ using System;
 
 namespace CSharpDesignPatterns
 {
-    public class Car
+    internal class Car
     {
-        public Car()
+        internal Car()
         {
             this.Make = "BMW";
             this.Model = "3 Series";
@@ -13,7 +13,7 @@ namespace CSharpDesignPatterns
             this.Price = 30000m;
         }
 
-        public Car(string make, string model, DateTime year, string colour, decimal price)
+        internal Car(string make, string model, DateTime year, string colour, decimal price)
         {
             this.Make = make;
             this.Model = model;
@@ -22,10 +22,10 @@ namespace CSharpDesignPatterns
             this.Price = price;
         }
 
-        public string Make { get; set; }
-        public string Model { get; set; }
-        public DateTime Year { get; set; }
-        public string Colour { get; set; }
-        public decimal Price { get; set; }
+        internal string Make { get; set; }
+        internal string Model { get; set; }
+        internal DateTime Year { get; set; }
+        internal string Colour { get; set; }
+        internal decimal Price { get; set; }
     }
 }

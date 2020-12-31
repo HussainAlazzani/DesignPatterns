@@ -5,7 +5,7 @@ namespace CSharpDesignPatterns
     /// </summary>
     public class AdaptorTest
     {
-        public static void Run()
+         public static void Run()
         {
             var xmlGraphs = new XmlGraphs();
             var graphViewer = new JsonGraphs(xmlGraphs);
@@ -20,7 +20,7 @@ namespace CSharpDesignPatterns
     /// <summary>
     /// Adapter interface - The target
     /// </summary>
-    public interface IGraphViewer
+    internal interface IGraphViewer
     {
         void DisplayBarChart(string data);
         void DisplayPieChart(string data);
@@ -30,11 +30,11 @@ namespace CSharpDesignPatterns
     /// Adapter - This class makes the adaptor interface compatible with the adaptee.
     /// In this example, it does so by converting the json text to xml text.
     /// </summary>
-    public class JsonGraphs : IGraphViewer
+    internal class JsonGraphs : IGraphViewer
     {
         private XmlGraphs adaptee;
 
-        public JsonGraphs(XmlGraphs adaptee)
+        internal JsonGraphs(XmlGraphs adaptee)
         {
             this.adaptee = adaptee;
         }
@@ -57,9 +57,9 @@ namespace CSharpDesignPatterns
     /// <summary>
     /// A utility to convert json string to xml string
     /// </summary>
-    public class JsonTextToXmlText
+    internal class JsonTextToXmlText
     {
-        public static string Convert(string jsonData)
+        internal static string Convert(string jsonData)
         {
             // Convert data from json text to xml text and return result
             return "text in xml format...";
@@ -69,14 +69,14 @@ namespace CSharpDesignPatterns
     /// <summary>
     /// Adaptee - Displays graphs when given data in xml text format.
     /// </summary>
-    public class XmlGraphs
+    internal class XmlGraphs
     {   
-        public void DisplayBarChart(string xmlData)
+        internal void DisplayBarChart(string xmlData)
         {
             System.Console.WriteLine("display bar chart of " + xmlData);
         }
 
-        public void DisplayPieChart(string xmlData)
+        internal void DisplayPieChart(string xmlData)
         {
             System.Console.WriteLine("display pie chart of " + xmlData);
         }

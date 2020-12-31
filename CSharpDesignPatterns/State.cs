@@ -23,11 +23,11 @@ namespace CSharpDesignPatterns
     /// <summary>
     /// Context
     /// </summary>
-    public class PhotoEditor
+    internal class PhotoEditor
     {
-        public IFilter CurrentFilter { get; set; }
+        internal IFilter CurrentFilter { get; set; }
 
-        public void Apply()
+        internal void Apply()
         {
             CurrentFilter.Apply();
         }
@@ -36,7 +36,7 @@ namespace CSharpDesignPatterns
     /// <summary>
     /// State
     /// </summary>
-    public interface IFilter
+    internal interface IFilter
     {
         // Using interface instead of abstract class since there are no fields nor implemented methods.
         void Apply();
@@ -45,7 +45,7 @@ namespace CSharpDesignPatterns
     /// <summary>
     /// Concrete State A
     /// </summary>
-    public class Blur : IFilter
+    internal class Blur : IFilter
     {
         public void Apply()
         {
@@ -56,7 +56,7 @@ namespace CSharpDesignPatterns
     /// <summary>
     /// Concrete State B
     /// </summary>
-    public class Sharpen : IFilter
+    internal class Sharpen : IFilter
     {
         public void Apply()
         {
@@ -67,7 +67,7 @@ namespace CSharpDesignPatterns
     /// <summary>
     /// Concrete State C
     /// </summary>
-    public class BlackAndWhite : IFilter
+    internal class BlackAndWhite : IFilter
     {
         public void Apply()
         {

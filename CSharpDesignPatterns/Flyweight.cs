@@ -4,9 +4,6 @@
 /// 3. Create a factory than can reuse existing objects or create and cache new ones.
 /// </remarks>
 
-// Code source:
-
-
 using System.IO;
 using System.Collections.Generic;
 
@@ -27,26 +24,26 @@ namespace CSharpDesignPatterns
     /// <summary>
     /// Flyweight
     /// </summary>
-    public abstract class BaseMessage
+    internal abstract class BaseMessage
     {
-        public abstract void Display(int fontSize, string fontFamily);
+        internal abstract void Display(int fontSize, string fontFamily);
     }
 
     /// <summary>
     /// Concrete flyweight
     /// </summary>
-    public class Message : BaseMessage
+    internal class Message : BaseMessage
     {
         // Intrinsic state
         protected string filename;
 
-        public Message(string filename)
+        internal Message(string filename)
         {
             this.filename = filename;
         }
 
         // Extrinsic state is passed as argument
-        public override void Display(int fontSize, string fontFamily)
+        internal override void Display(int fontSize, string fontFamily)
         {
             string message = File.ReadAllText(@"..\CSharpDesignPatterns\Message\" + filename);
 
@@ -58,11 +55,11 @@ namespace CSharpDesignPatterns
     /// <summary>
     /// Flyweight Factory - uses factory method design pattern
     /// </summary>
-    public class MessageFactory
+    internal class MessageFactory
     {
         private IDictionary<string, BaseMessage> flyweights = new Dictionary<string, BaseMessage>();
 
-        public BaseMessage GetFlyweight(string filename)
+        internal BaseMessage GetFlyweight(string filename)
         {
             BaseMessage flyweight = null;
 
@@ -85,9 +82,9 @@ namespace CSharpDesignPatterns
     /// <summary>
     /// Client
     /// </summary>
-    public class Webpage
+    internal class Webpage
     {
-        public void Render()
+        internal void Render()
         {
             MessageFactory factory = new MessageFactory();
 

@@ -29,9 +29,9 @@ namespace CSharpDesignPatterns
     /// <summary>
     /// Facade
     /// </summary>
-    public class FinancialServices
+    internal class FinancialServices
     {
-        public void Transfer(string from, string to, decimal amount)
+        internal void Transfer(string from, string to, decimal amount)
         {
             Account accountA = new Account(from);
             Account accountB = new Account(to);
